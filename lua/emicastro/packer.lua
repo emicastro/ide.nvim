@@ -80,10 +80,11 @@ return require('packer').startup(function(use)
   use{'ray-x/guihua.lua', run = 'cd lua/fzy && make'} -- recommanded if need floating window support
 
   -- Debugger
-  -- use('mfussenegger/nvim-dap'
-  -- use('rcarriga/nvim-dap-ui'
-  -- use('theHamsta/nvim-dap-virtual-text'
-  -- use('nvim-telescope/telescope-dap.nvim'
+  use('mfussenegger/nvim-dap')
+  use('rcarriga/nvim-dap-ui')
+  use('leoluz/nvim-dap-go')
+  use('theHamsta/nvim-dap-virtual-text')
+  -- use('nvim-telescope/telescope-dap.nvim')
 
 
 end)
