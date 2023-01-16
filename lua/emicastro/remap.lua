@@ -48,3 +48,12 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/emicastro/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>");
+
+-- Open new terminal window (tv for vertical - th for horizontal)
+vim.keymap.set("n", "<leader>vt", ":botright vnew <Bar> :terminal<CR>")
+vim.keymap.set("n", "<leader>vh", ":botright new <Bar> :terminal<CR>")
+
+vim.keymap.set("n", "<leader>h", ":wincmd h<CR>")
+vim.keymap.set("n", "<leader>j", ":wincmd j<CR>")
+vim.keymap.set("n", "<leader>k", ":wincmd k<CR>")
+vim.keymap.set("n", "<leader>l", ":wincmd l<CR>")
