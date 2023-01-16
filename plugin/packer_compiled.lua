@@ -230,6 +230,11 @@ _G.packer_plugins = {
     path = "/Users/emi/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["tabby.nvim"] = {
+    loaded = true,
+    path = "/Users/emi/.local/share/nvim/site/pack/packer/start/tabby.nvim",
+    url = "https://github.com/nanozuki/tabby.nvim"
+  },
   ["telescope-dap.nvim"] = {
     loaded = true,
     path = "/Users/emi/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
