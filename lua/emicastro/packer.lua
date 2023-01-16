@@ -73,4 +73,6 @@ return require('packer').startup(function(use)
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
+  use('tpope/vim-surround') --provides mappings to easily delete, change and add such surroundings in pairs
+
 end)
