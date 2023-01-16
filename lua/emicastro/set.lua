@@ -15,6 +15,7 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
+vim.opt.fileformats = "unix,mac,dos"
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -34,5 +35,3 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
-
-
