@@ -41,7 +41,7 @@ lsp.set_preferences({
 })
 
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = true
 })
 
 lsp.on_attach(function(client, bufnr)
