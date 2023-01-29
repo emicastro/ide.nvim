@@ -9,7 +9,25 @@ lsp.ensure_installed({
 	'tsserver',
 	'sumneko_lua',
 	'rust_analyzer',
-	'pyright',
+})
+
+-- Fix Undefined global 'vim'
+lsp.configure('sumneko_lua', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
+
+require('lspconfig')['rust_analyzer'].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = {
+        "rustup", "run", "stable", "rust-analyzer",
+    }
 })
 
 local cmp = require('cmp')
@@ -40,10 +58,6 @@ lsp.set_preferences({
     }
 })
 
-vim.diagnostic.config({
-    virtual_text = true
-})
-
 lsp.on_attach(function(client, bufnr)
 	local opts = {buffer = bufnr, remap = false}
 
@@ -60,3 +74,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})
