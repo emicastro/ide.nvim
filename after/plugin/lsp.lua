@@ -22,14 +22,6 @@ lsp.configure('sumneko_lua', {
     }
 })
 
-require('lspconfig')['rust_analyzer'].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    cmd = {
-        "rustup", "run", "stable", "rust-analyzer",
-    }
-})
-
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
