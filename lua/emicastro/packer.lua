@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
 		  {'neovim/nvim-lspconfig'},
 		  {'williamboman/mason.nvim'},
 		  {'williamboman/mason-lspconfig.nvim'},
+          {'nvimdev/lspsaga.nvim'},
 
 		  -- Autocompletion
 		  {'hrsh7th/nvim-cmp'},
@@ -79,6 +80,9 @@ return require('packer').startup(function(use)
   -- Golang
   use('ray-x/go.nvim')
   use{'ray-x/guihua.lua', run = 'cd lua/fzy && make'} -- recommanded if need floating window support
+
+  -- Rust
+  use('simrat39/rust-tools.nvim')
 
   -- Debugger
   use('mfussenegger/nvim-dap')

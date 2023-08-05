@@ -35,6 +35,7 @@ There the plugin's configs need to be added. Then both files need to be sourced 
 List of languages that this configuration accomodates for:
 
 - Go
+- Rust
 - Lua
 
 ## Aesthetics
