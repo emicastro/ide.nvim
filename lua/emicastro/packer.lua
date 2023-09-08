@@ -91,6 +91,7 @@ return require('packer').startup(function(use)
   use('theHamsta/nvim-dap-virtual-text')
   use('nvim-telescope/telescope-dap.nvim')
 
-  use('nanozuki/tabby.nvim')
+  -- Only useful when you do not have a tab manager like zellij in your terminal.
+  -- use('nanozuki/tabby.nvim')
 
 end)
