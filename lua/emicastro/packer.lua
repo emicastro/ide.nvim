@@ -62,7 +62,7 @@ return require('packer').startup(function(use)
   use('folke/zen-mode.nvim')
   use('eandrju/cellular-automaton.nvim')
   -- use('github/copilot.nvim')
-  use('lukas-reineke/indent-blankline.nvim')
+  use{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
   use('lewis6991/gitsigns.nvim')
 
   use('theprimeagen/vim-be-good')
