@@ -34,13 +34,13 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
-  use ({
-    'nvimdev/lspsaga.nvim',
-    after = 'nvim-lspconfig',
-    config = function()
-        require('lspsaga').setup({})
-    end,
-  })
+  -- use ({
+  --   'nvimdev/lspsaga.nvim',
+  --   after = 'nvim-lspconfig',
+  --   config = function()
+  --       require('lspsaga').setup({})
+  --   end,
+  -- })
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
 		  {'neovim/nvim-lspconfig'},
 		  {'williamboman/mason.nvim'},
 		  {'williamboman/mason-lspconfig.nvim'},
-          {'nvimdev/lspsaga.nvim'},
+          -- {'nvimdev/lspsaga.nvim'},
 
 		  -- Autocompletion
 		  {'hrsh7th/nvim-cmp'},
