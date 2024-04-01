@@ -22,5 +22,13 @@ autocmd("BufWinEnter", {
             vim.cmd [[ GoAlt ]]
         end, opts)
 
+        vim.keymap.set("n", "<leader>gie", function()
+            vim.cmd [[ GoIfErr ]]
+        end, opts)
+
+        vim.keymap.set("n", "<leader>gfs", function()
+            vim.cmd [[ GoFillStruct ]]
+        end, opts)
+
     end,
 })
