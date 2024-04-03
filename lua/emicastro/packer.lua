@@ -59,9 +59,10 @@ return require('packer').startup(function(use)
 		  {'saadparwaiz1/cmp_luasnip'},
 		  {'hrsh7th/cmp-nvim-lsp'},
 		  {'hrsh7th/cmp-nvim-lua'},
+          {'petertriho/cmp-git'},
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
+		  -- Snippet
+		  {'L3MON4D3/LuaSnip', tag = "v2.*", run = "make install_jsregexp"},
 		  -- Snippet Collection (Optional)
 		  {'rafamadriz/friendly-snippets'},
 	  }

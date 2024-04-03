@@ -41,17 +41,21 @@ require('mason-lspconfig').setup({
     },
 })
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
     function (server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {}
+        require("lspconfig")[server_name].setup {
+            capabilities = capabilities
+        }
     end,
     -- Next, you can provide a dedicated handler for specific servers.
     -- For example, a handler override for the `rust_analyzer`:
     rust_analyzer = function ()
-        require("lspconfig").rust_analyzer.setup {
+        require("rust-tools").setup {
             -- Server-specific settings. See `:help lspconfig-setup`
             settings = {
                 ['rust-analyzer'] = {
@@ -66,20 +70,34 @@ require("mason-lspconfig").setup_handlers {
         local lua_opts = lsp.nvim_lua_ls()
         require('lspconfig').lua_ls.setup(lua_opts)
     end,
+    clangd = function ()
+            require('lspconfig').clangd.setup {
+            capabilities = capabilities,
+        }
+    end
+
 }
 
 lsp.preset('recommended')
 
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
+local cmp_action = require('lsp-zero').cmp_action()
+
+local cmp_mappings = cmp.mapping.preset.insert({
 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 	['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-	['<C-Space>'] = cmp.mapping.complete(),
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-d>"] = cmp.mapping.scroll_docs(4),
+	-- ['<C-Space>'] = cmp.mapping.complete(),
 })
 
 -- disable completion with tab
@@ -87,13 +105,36 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 -- cmp_mappings['<Tab>'] = nil
 -- cmp_mappings['<S-Tab>'] = nil
 
+
+local cmp_format = require('lsp-zero').cmp_format({details=true})
 cmp.setup({
 	mapping = cmp_mappings,
+    sources = {
+        {name = 'nvim_lsp'},
+        {name = 'buffer'},
+        {name = 'luasnip'},
+        {name = 'nvim_lua'},
+        {name = 'path'},
+    },
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
         end,
     },
+    -- Uncomment this to disable autocompletion
+    -- completion = {
+    --     autocomplete = false
+    -- },
+    -- Show source name in completion menu
+    formatting = cmp_format,
+})
+
+cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+        { name = 'git' },
+    }, {
+        { name = 'buffer' },
+    })
 })
 
 lsp.set_preferences({
