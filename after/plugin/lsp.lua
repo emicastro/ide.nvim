@@ -74,8 +74,12 @@ require("mason-lspconfig").setup_handlers {
             require('lspconfig').clangd.setup {
             capabilities = capabilities,
         }
+    end,
+    gopls = function ()
+       require('lspconfig').gopls.setup{
+           capabilities = capabilities,
+       }
     end
-
 }
 
 lsp.preset('recommended')
