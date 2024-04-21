@@ -5,6 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 -- empty setup using defaults
 require("nvim-tree").setup {
     view = {
+        side = "right",
         number = true,
         relativenumber = true
     },
