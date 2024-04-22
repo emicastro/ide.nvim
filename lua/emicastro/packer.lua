@@ -9,31 +9,19 @@ return require('packer').startup(function(use)
 
   use { "nvim-neotest/nvim-nio" }
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.6',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  -- Treesitter
+  use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use 'nvim-treesitter/playground'
 
-  use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
+  -- Harpoon love
+  use 'theprimeagen/harpoon'
 
-  use 'kyazdani42/nvim-web-devicons'
-  use {
-      'nvim-lualine/lualine.nvim', -- Fancier statusline
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  -- Git stuff
+  use 'mbbill/undotree'
+  use 'tpope/vim-fugitive'
+  use 'lewis6991/gitsigns.nvim'
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('nvim-treesitter/playground')
-  use('theprimeagen/harpoon')
-  use('mbbill/undotree')
-  use('tpope/vim-fugitive')
+  -- LSP nightmare starts here ...
   use ({
     'nvimdev/lspsaga.nvim',
     after = 'nvim-lspconfig',
@@ -68,16 +56,42 @@ return require('packer').startup(function(use)
 	  }
   }
 
-  use('numToStr/Comment.nvim') -- 'gc' to comment visual regions/lines
+  -- Best Theme Ever!
+  use {
+      'rose-pine/neovim',
+      as = 'rose-pine',
+      config = function()
+          vim.cmd('colorscheme rose-pine')
+      end
+  }
 
-  use('folke/zen-mode.nvim')
-  use('eandrju/cellular-automaton.nvim')
-  -- use('github/copilot.nvim')
-  use{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
-  use('lewis6991/gitsigns.nvim')
+  -- Distraction-free coding for Neovim
+  -- Toggle Zen Mode with `:ZenMode`
+  -- opens the current buffer in a new full-screen floating window
+  use 'folke/zen-mode.nvim'
 
-  use('theprimeagen/vim-be-good')
+  use 'kyazdani42/nvim-web-devicons'
+  use {
+      'nvim-lualine/lualine.nvim', -- Fancier statusline
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} } -- Adds identation guides
+  use 'numToStr/Comment.nvim' -- 'gc' to comment visual regions/lines
+  use 'tpope/vim-surround' --provides mappings to easily delete, change and add such surroundings in pairs
+  use 'tpope/vim-sleuth'
 
+  -- Telescope Fuzzy Finder (files, lsp, etc)
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.6', requires = { 'nvim-lua/plenary.nvim' }}
+
+  -- Fuzzy Finder Algorithm which requires local deps to be built. Only loads if `make` is available
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' , cond = vim.fn.executable 'make' == 1 }
+
+  use 'eandrju/cellular-automaton.nvim'
+
+  -- Use at your own risk
+  -- use 'github/copilot.nvim'
+
+  -- Polemic file tree view
   use {
       'nvim-tree/nvim-tree.lua',
       requires = {
@@ -86,23 +100,24 @@ return require('packer').startup(function(use)
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
-  use('tpope/vim-surround') --provides mappings to easily delete, change and add such surroundings in pairs
+  -- The joy of vim motions by theprimeagen
+  use 'theprimeagen/vim-be-good'
 
   -- Golang
-  use('ray-x/go.nvim')
-  use{'ray-x/guihua.lua', run = 'cd lua/fzy && make'} -- recommanded if need floating window support
+  use 'ray-x/go.nvim'
+  use {'ray-x/guihua.lua', run = 'cd lua/fzy && make'} -- recommanded if need floating window support
 
   -- Rust
-  use('simrat39/rust-tools.nvim')
+  use 'simrat39/rust-tools.nvim'
 
   -- Debugger
-  use('mfussenegger/nvim-dap')
-  use('rcarriga/nvim-dap-ui')
-  use('leoluz/nvim-dap-go')
-  use('theHamsta/nvim-dap-virtual-text')
-  use('nvim-telescope/telescope-dap.nvim')
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'leoluz/nvim-dap-go'
+  use 'theHamsta/nvim-dap-virtual-text'
+  use 'nvim-telescope/telescope-dap.nvim'
 
   -- Only useful when you do not have a tab manager like zellij in your terminal.
-  -- use('nanozuki/tabby.nvim')
+  -- use 'nanozuki/tabby.nvim'
 
 end)
