@@ -10,6 +10,7 @@ lsp.on_attach(function(client, bufnr)
     local bind = vim.keymap.set
     bind("n", "gr", function() vim.lsp.buf.references() end, opts)
     bind("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    bind("n", "gD", function() vim.lsp.buf.declaration() end, opts)
     bind("n", "K", function() vim.lsp.buf.hover() end, opts)
     bind("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     bind("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
