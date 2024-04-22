@@ -3,13 +3,18 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>u", ":UndotreeShow<CR>")
 
+-- In visual mode, moves the selected line up (J) or down (K)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "Y", "yg$")
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "J", "mzJ`z") -- removes the '\n' from the current line
+
+-- PgUp and PgDn
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Move the cursor to the next search match and bring the cursor line
+-- to the middle of the screen
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
@@ -20,14 +25,15 @@ vim.keymap.set("n", "<leader>svwm", function()
     require("vim-with-me").StopVimWithMe()
 end)
 
--- greatest remap ever
+-- in visual-block, delete selection and paste buffered text, DROPPING the replaced text!
+-- 'pasted' text is still buffered!!!
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- Yanks selection to the clipboard.
+vim.keymap.set("n", "<leader>Y", [["+Y]])          -- Yanks the entire line to the clipboard!
 
-vim.keymap.set({ "n", "v" }, "<leader>D", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>D", [["_d]]) -- Drops the selection without buffering it
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
