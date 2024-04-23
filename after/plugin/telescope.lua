@@ -22,4 +22,5 @@ end, { desc = '[F]ind provided [S]tring' })
 vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
 
 require('telescope').setup()
+require('telescope').load_extension('fzf')
 require('telescope').load_extension('dap')
