@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<leader>u", ":UndotreeShow<CR>")
 
@@ -65,7 +65,7 @@ vim.keymap.set("n", "<leader>k", ":wincmd k<CR>")
 vim.keymap.set("n", "<leader>l", ":wincmd l<CR>")
 
 -- Escape Terminal mode with <leader><ESC>
-vim.api.nvim_set_keymap('t', '<Leader><ESC>', '<C-\\><C-n>', { noremap = true })
+vim.api.nvim_set_keymap('t', '<ESC><ESC>', '<C-\\><C-n>', { desc = 'Exit terminal mode', noremap = true })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_next)
