@@ -1,6 +1,13 @@
 -- See `:help telescope.builtin`
 local builtin = require('telescope.builtin')
 
+-- Two important keymaps to use while in telescope are:
+-- - Insert mode: <c-/>
+-- - Normal mode: ?
+--
+-- This opens a window that shows you all of the keymaps for the current
+-- telescope picker.
+
 vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
