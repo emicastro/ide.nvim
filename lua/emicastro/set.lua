@@ -1,5 +1,5 @@
 -- [[ Setting options ]]
--- See `:help vim.o`
+-- See `:help vim.opt`
 
 vim.opt.guicursor = ""
 
