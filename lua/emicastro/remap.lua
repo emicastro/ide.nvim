@@ -49,26 +49,24 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>");
 
--- not sure about activating these
--- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
--- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
--- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
--- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
--- Open new terminal window (tv for vertical - ht for horizontal)
-vim.keymap.set("n", "<leader>vt", ":botright vnew <Bar> :terminal<CR>")
-vim.keymap.set("n", "<leader>ht", ":botright new <Bar> :terminal<CR>")
-
-vim.keymap.set("n", "<leader>h", ":wincmd h<CR>")
-vim.keymap.set("n", "<leader>j", ":wincmd j<CR>")
-vim.keymap.set("n", "<leader>k", ":wincmd k<CR>")
-vim.keymap.set("n", "<leader>l", ":wincmd l<CR>")
-
--- Escape Terminal mode with <leader><ESC>
-vim.api.nvim_set_keymap('t', '<ESC><ESC>', '<C-\\><C-n>', { desc = 'Exit terminal mode', noremap = true })
-
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+
+-- Open new terminal window (tv for vertical - ht for horizontal)
+vim.keymap.set("n", "<leader>vt", ":botright vnew <Bar> :terminal<CR>")
+vim.keymap.set("n", "<leader>ht", ":botright new <Bar> :terminal<CR>")
+
+-- Keybinds to make split navigation easier.
+--  Use CTRL+<hjkl> to switch between windows
+--
+--  See `:help wincmd` for a list of all window commands
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Escape Terminal mode with <leader><ESC>
+vim.api.nvim_set_keymap('t', '<ESC><ESC>', '<C-\\><C-n>', { desc = 'Exit terminal mode', noremap = true })
