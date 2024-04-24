@@ -13,8 +13,13 @@ return require('packer').startup(function(use)
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use 'nvim-treesitter/playground'
 
+  use "nvim-lua/plenary.nvim"
   -- Harpoon love
-  use 'theprimeagen/harpoon'
+  use {
+    'theprimeagen/harpoon',
+    branch = 'harpoon2',
+    requires ={ {'nvim-lua/plenary.nvim'} }
+  }
 
   -- Git stuff
   use 'mbbill/undotree'
