@@ -1,7 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = {
-    "nvim-tree/nvim-web-devicons"
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
     local nvimtree = require("nvim-tree")
@@ -18,6 +18,19 @@ return {
         relativenumber = true,
         width = 35,
       },
+      renderer = {
+        indent_markers = {
+          enable = true,
+        },
+        -- icons = {
+        --   glyphs = {
+        --     folder = {
+        --       arrow_closed = "", -- arrow when folder is closed
+        --       arrow_open = "", -- arrow when folder is open
+        --     },
+        --   },
+        -- },
+      },
       actions = {
         open_file = {
           quit_on_open = true,
@@ -25,7 +38,7 @@ return {
           -- explorer to work well with
           -- window splits
           window_picker = {
-            enable = false
+            enable = false,
           },
         },
       },

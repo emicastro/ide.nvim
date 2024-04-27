@@ -13,16 +13,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { import = "emicastro.plugins" },
-    { import = "emicastro.plugins.lsp" },
-}, {
-    install = {
-        colorscheme = { "nightfly" },
-    },
-    checker = {
-        enabled = true,
-        notify = false,
-    },
-    change_detection = {
-        notify = false,
-    },
+    { import = "emicastro.plugins.lsp" }
+  }, {
+  install = {
+    colorscheme = { "nightfly" },
+  },
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
 })

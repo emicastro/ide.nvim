@@ -1,5 +1,5 @@
-require 'emicastro.core'
-require 'emicastro.lazy'
+require('emicastro.core')
+require('emicastro.lazy')
 
 --[[
 

@@ -26,6 +26,9 @@ return { -- Highlight, edit, and navigate code
       autotag = {
         enable = true,
       },
+      -- Install parsers synchronously (only applied to `ensure_installed`)
+      sync_install = false,
+      auto_install = true,
       -- ensure these language parsers are installed
       ensure_installed = {
         "c",
@@ -51,7 +54,6 @@ return { -- Highlight, edit, and navigate code
         "dockerfile",
         "gitignore",
         "query",
-        "help",
       },
       incremental_selection = {
         enable = true,
