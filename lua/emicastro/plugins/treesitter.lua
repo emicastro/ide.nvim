@@ -1,16 +1,16 @@
 return { -- Highlight, edit, and navigate code
-  'nvim-treesitter/nvim-treesitter',
-  event = { 'BufReadPre', 'BufNewFile' },
-  build = ':TSUpdate',
+  "nvim-treesitter/nvim-treesitter",
+  event = { "BufReadPre", "BufNewFile" },
+  build = ":TSUpdate",
   dependencies = {
-    'windwp/nvim-ts-autotag',
+    "windwp/nvim-ts-autotag",
   },
   config = function()
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     -- Prefer git instead of curl in order to improve connectivity in some environments
-    require('nvim-treesitter.install').prefer_git = true
+    require("nvim-treesitter.install").prefer_git = true
 
-    local treesitter = require('nvim-treesitter.configs')
+    local treesitter = require("nvim-treesitter.configs")
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
@@ -18,10 +18,10 @@ return { -- Highlight, edit, and navigate code
         enable = true,
 
         -- Set this to `true` because ruby depends on 'syntax' being enabled for indentation.
-        additional_vim_regex_highlighting = { 'ruby' },
+        additional_vim_regex_highlighting = { "ruby" },
       },
       -- enable indentation
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true, disable = { "ruby" } },
       -- enable autotagging (w/ nvim-ts-autotag plugin)
       autotag = {
         enable = true,
@@ -34,9 +34,12 @@ return { -- Highlight, edit, and navigate code
         "c",
         "cpp",
         "go",
+        "ron",
         "rust",
+        "toml",
         "bash",
         "lua",
+        "luadoc",
         "sql",
         "vim",
         "vimdoc",
@@ -58,10 +61,10 @@ return { -- Highlight, edit, and navigate code
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = '<c-space>',
-          node_incremental = '<c-space>',
-          scope_incremental = '<c-s>',
-          node_decremental = '<c-backspace>',
+          init_selection = "<c-space>",
+          node_incremental = "<c-space>",
+          scope_incremental = "<c-s>",
+          node_decremental = "<c-backspace>",
         },
       },
       textobjects = {
@@ -70,33 +73,33 @@ return { -- Highlight, edit, and navigate code
           lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
-            ['aa'] = '@parameter.outer',
-            ['ia'] = '@parameter.inner',
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
+            ["aa"] = "@parameter.outer",
+            ["ia"] = "@parameter.inner",
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
           },
         },
         move = {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
-            [']m'] = '@function.outer',
-            [']]'] = '@class.outer',
+            ["]m"] = "@function.outer",
+            ["]]"] = "@class.outer",
           },
           goto_next_end = {
-            [']M'] = '@function.outer',
-            [']['] = '@class.outer',
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
           },
         },
         swap = {
           enable = true,
           swap_next = {
-            ['<leader>a'] = '@parameter.inner',
+            ["<leader>a"] = "@parameter.inner",
           },
           swap_previous = {
-            ['<leader>A'] = '@parameter.inner',
+            ["<leader>A"] = "@parameter.inner",
           },
         },
       },

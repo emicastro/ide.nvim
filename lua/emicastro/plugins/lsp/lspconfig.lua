@@ -6,6 +6,27 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
   },
+  opts = {
+    servers = {
+      rust_analyzer = {},
+      taplo = {
+        keys = {
+          {
+            "K",
+            function()
+              if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+                require("crates").show_popup()
+              else
+                vim.lsp.buf.hover()
+              end
+            end,
+            desc = "Show Crate Documentation",
+          },
+        },
+      },
+    },
+  },
+
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
@@ -85,6 +106,7 @@ return {
           capabilities = capabilities,
         })
       end,
+
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({

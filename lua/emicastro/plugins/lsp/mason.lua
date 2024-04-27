@@ -38,10 +38,10 @@ return {
         "jsonls",
         "lua_ls",
         "tsserver",
-        "rust_analyzer",
         "html",
         "htmx",
         "marksman",
+        "taplo",
         "cssls",
       },
     })
@@ -54,6 +54,7 @@ return {
         "goimports",
         "gotests",
         "gci",
+        "codelldb",
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "eslint_d",
