@@ -29,7 +29,6 @@ return {
       ensure_installed = {
         "gopls",
         "clangd",
-        "cmake",
         "zls",
         "autotools_ls",
         "sqls",
@@ -37,12 +36,10 @@ return {
         "dockerls",
         "jsonls",
         "lua_ls",
-        "tsserver",
         "html",
         "htmx",
         "marksman",
         "taplo",
-        "cssls",
       },
     })
 
@@ -54,6 +51,7 @@ return {
         "goimports",
         "gotests",
         "gci",
+        "delve",
         "codelldb",
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
