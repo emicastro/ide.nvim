@@ -21,10 +21,10 @@ keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
 keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
+  require("vim-with-me").StartVimWithMe()
 end)
 keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
+  require("vim-with-me").StopVimWithMe()
 end)
 
 -- in visual-block, delete selection and paste buffered text, DROPPING the replaced text!
@@ -33,7 +33,7 @@ keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
 keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- Yanks selection to the clipboard.
-keymap.set("n", "<leader>Y", [["+Y]])          -- Yanks the entire line to the clipboard!
+keymap.set("n", "<leader>Y", [["+Y]]) -- Yanks the entire line to the clipboard!
 
 keymap.set({ "n", "v" }, "<leader>D", [["_d]]) -- Drops the selection without buffering it
 
@@ -48,8 +48,8 @@ keymap.set("n", "<leader>f", vim.lsp.buf.format)
 keymap.set("n", "<leader>rs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>");
+keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
+keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>")
 
 -- Diagnostic keymaps
 keymap.set("n", "[d", vim.diagnostic.goto_next)
@@ -65,10 +65,10 @@ keymap.set("n", "<leader>ht", ":botright new <Bar> :terminal<CR>")
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Escape Terminal mode with <leader><ESC>
-vim.api.nvim_set_keymap('t', '<ESC><ESC>', '<C-\\><C-n>', { desc = 'Exit terminal mode', noremap = true })
+vim.api.nvim_set_keymap("t", "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode", noremap = true })
