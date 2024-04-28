@@ -1,6 +1,7 @@
 -- [[ Sets up lazy with plugins ]]
 return {
-  'nvim-lua/plenary.nvim',
+  "nvim-lua/plenary.nvim",
+  "mbbill/undotree",
 
   -- 'eandrju/cellular-automaton.nvim',
   --
@@ -11,14 +12,12 @@ return {
 
   -- 'kyazdani42/nvim-web-devicons',
 
-
   -- Distraction-free coding for Neovim
   -- Toggle Zen Mode with `:ZenMode`
   -- opens the current buffer in a new full-screen floating window
   -- 'folke/zen-mode.nvim',
 
-  'tpope/vim-sleuth',   -- Detect tabstop and shiftwidth automatically
-
+  "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
   -- Use at your own risk
   --  'github/copilot.nvim',
@@ -26,6 +25,5 @@ return {
   -- 'nvim-neotest/nvim-nio',
 
   -- The joy of vim motions by theprimeagen
-  'theprimeagen/vim-be-good',
-
+  "theprimeagen/vim-be-good",
 }

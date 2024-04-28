@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap
 
 keymap.set("n", "<leader>u", ":UndotreeShow<CR>")
+-- keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle)
 
 -- In visual mode, moves the selected line up (J) or down (K)
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
