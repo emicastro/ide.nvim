@@ -44,7 +44,12 @@ return {
         },
       },
       -- DAP configuration
-      dap = {},
+      -- dap = {
+      --   "mfussenegger/nvim-dap",
+      --   init = function ()
+      --     require("dap")
+      --   end
+      -- },
     },
     config = function(_, opts)
       vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
@@ -78,15 +83,5 @@ return {
         end,
       },
     },
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    opts = function(_, opts)
-      opts.adapters = opts.adapters or {}
-      vim.list_extend(opts.adapters, {
-        require("rustaceanvim.neotest"),
-      })
-    end,
   },
 }

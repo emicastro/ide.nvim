@@ -74,7 +74,7 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+      group = vim.api.nvim_create_augroup("EmiCastroLspConfig", {}),
       callback = function(ev)
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -145,6 +145,11 @@ return {
           capabilities = capabilities,
         })
       end,
+
+      -- This function must stay void in order to prevent the setup
+      -- of `rust_analyzer` by `mason_lspconfig`, what whould cause
+      -- conflicts with `rustaceanvim`
+      ["rust_analyzer"] = function() end,
 
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
