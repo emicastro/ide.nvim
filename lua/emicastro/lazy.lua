@@ -15,6 +15,9 @@ require("lazy").setup({
   { import = "emicastro.plugins" },
   { import = "emicastro.plugins.lsp" },
   { import = "emicastro.plugins.dap" },
+  -- contains extra functionalities
+  -- to perform network i/o ops e.g.: an integrated rest client.
+  { import = "emicastro.plugins.net" },
 }, {
   install = {
     colorscheme = { "nightfly" },

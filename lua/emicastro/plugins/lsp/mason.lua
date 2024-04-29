@@ -56,6 +56,7 @@ return {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "eslint_d",
+        "jq",
       },
     })
   end,
