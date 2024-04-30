@@ -84,4 +84,20 @@ return {
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
     { "<leader>td", function() require("neotest").run.run({strategy = "dap"}) end, desc = "Debug Nearest" },
   },
+
+  config = function()
+    local dap = require("dap")
+
+    dap.configurations.zig = {
+      {
+        name = "Launch",
+        type = "codelldb",
+        request = "launch",
+        program = "${workspaceFolder}/zig-out/bin/${workspaceFolderBasename}",
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+        args = {},
+      },
+    }
+  end,
 }
