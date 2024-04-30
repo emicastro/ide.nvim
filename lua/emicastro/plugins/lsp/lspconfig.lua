@@ -185,6 +185,16 @@ return {
           },
         })
       end,
+
+      ["zls"] = function()
+        lspconfig["zls"].setup({
+          on_attach = lspconfig.on_attach,
+          capabilities = capabilities,
+          cmd = { "zls" },
+          filetypes = { "zig", "zon" },
+          root_dir = lspconfig.util.root_pattern("zls.json", "build.zig", ".git"),
+        })
+      end,
     })
   end,
 }
