@@ -9,6 +9,7 @@ return {
         go = { "gofumpt", "gotests", "goimports", "gci", "gomodifytags", "golines" },
         c = { "clang-format" },
         lua = { "stylua" },
+        zig = { "zig fmt" },
         bash = { "beautysh" },
         html = { "prettier" },
         json = { "prettier", "jq" },

@@ -92,6 +92,11 @@ return {
         { name = "path" }, -- file system paths
       }),
 
+      window = {
+        completion = { border = "rounded" },
+        documentation = { border = "rounded" },
+      },
+
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({
