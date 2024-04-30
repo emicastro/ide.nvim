@@ -188,7 +188,6 @@ return {
 
       ["zls"] = function()
         lspconfig["zls"].setup({
-          on_attach = lspconfig.on_attach,
           capabilities = capabilities,
           cmd = { "zls" },
           filetypes = { "zig", "zon" },
