@@ -13,9 +13,9 @@ opt.guicursor = ""
 opt.nu = true
 opt.relativenumber = true
 
--- folds
-opt.foldenable = true
-opt.foldlevelstart = 99
+-- -- folds
+-- opt.foldenable = true
+-- opt.foldlevelstart = 99
 
 -- tabs & indentation
 opt.tabstop = 4

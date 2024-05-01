@@ -60,7 +60,7 @@ return {
       toggle_telescope(harpoon:list())
     end, { desc = "Open harpoon window" })
 
-    vim.keymap.set("n", "<C-a>", function()
+    vim.keymap.set("n", "<leader>a", function()
       harpoon:list():add()
     end, { desc = "Adds current buffer to harpoon" })
 
