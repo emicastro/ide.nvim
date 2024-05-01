@@ -1,10 +1,15 @@
 require("emicastro.core")
 require("emicastro.lazy")
 
-local augroup = vim.api.nvim_create_augroup
+local api = vim.api
+
+-- don't auto comment new line
+api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
+
+local augroup = api.nvim_create_augroup
 local EmiCastroGroup = augroup("EmiCastro", {})
 
-local autocmd = vim.api.nvim_create_autocmd
+local autocmd = api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
 
 function R(name)

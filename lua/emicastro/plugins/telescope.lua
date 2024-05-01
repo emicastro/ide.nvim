@@ -84,7 +84,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]ind [R]esume" })
     keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
     keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-    keymap.set("n", "<C-i>", builtin.git_files, {})
+    keymap.set("n", "<C-i>", builtin.git_files, { desc = "Find files tracked by git" })
 
     keymap.set("n", "<leader>fs", function()
       builtin.grep_string({ search = vim.fn.input("Grep > ") })
