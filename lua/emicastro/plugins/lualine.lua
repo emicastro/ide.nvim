@@ -12,6 +12,17 @@ return {
         theme = "powerline",
         --component_separators = '|',
         --section_separators = '',
+        disabled_filetypes = {
+          statusline = {
+            "alfa-nvim",
+            "help",
+            "neo-tree",
+            "Trouble",
+            "spectre_panel",
+            "toggleterm",
+          },
+          winbar = {},
+        },
       },
       sections = {
         lualine_x = {
@@ -27,6 +38,11 @@ return {
             "rest",
             icon = "",
             fg = "#428890",
+          },
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = { fg = "#ff9e64" },
           },
         },
       },
