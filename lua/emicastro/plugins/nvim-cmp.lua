@@ -93,16 +93,30 @@ return {
       }),
 
       window = {
-        completion = { border = "rounded" },
+        completion = {
+          border = "rounded",
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+          col_offset = -3,
+          side_padding = 0,
+        },
         documentation = { border = "rounded" },
       },
 
-      -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
-        format = lspkind.cmp_format({
-          maxwidth = 50,
-          ellipsis_char = "...",
-        }),
+        fields = { "kind", "abbr", "menu" },
+        -- configure lspkind for vs-code like pictograms in completion menu
+        format = function(entry, vim_item)
+          local kind = require("lspkind").cmp_format({
+            mode = "symbol_text",
+            maxwidth = 50,
+            ellipsis_char = "...",
+          })(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = true })
+          kind.kind = " " .. (strings[1] or "") .. " "
+          kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+          return kind
+        end,
       },
     })
   end,
