@@ -2,9 +2,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
 
 keymap.set("n", "<leader>u", ":UndotreeShow<CR>")
 -- keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle)
+
+-- Fast saving
+keymap.set("n", "<Leader>w", ":write!<CR>", opts)
+keymap.set("n", "<Leader>qq", ":q!<CR>", opts)
 
 -- Code Folding
 keymap.set("n", "-", "<cmd>foldclose<CR>", { desc = "Close code fold" })
@@ -32,6 +37,15 @@ keymap.set("n", "<leader>svwm", function()
   require("vim-with-me").StopVimWithMe()
 end)
 
+-- paste over currently selected text without yanking it
+-- p puts text after the cursor,
+-- P puts text before the cursor.
+keymap.set("v", "p", '"_dp')
+keymap.set("v", "P", '"_dP')
+
+-- copy everything between { and } including the brackets
+keymap.set("n", "YY", "va{Vy", opts)
+
 -- in visual-block, delete selection and paste buffered text, DROPPING the replaced text!
 -- 'pasted' text is still buffered!!!
 keymap.set("x", "<leader>p", [["_dP]])
@@ -49,12 +63,27 @@ keymap.set("n", "Q", "<nop>")
 -- keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
+-- Move to start/end of line
+keymap.set({ "n", "x", "o" }, "H", "^", opts)
+keymap.set({ "n", "x", "o" }, "L", "g_", opts)
+
+-- Navigate buffers
+keymap.set("n", "<Right>", ":bnext<CR>", opts)
+keymap.set("n", "<Left>", ":bprevious<CR>", opts)
+
 -- replace string globally
 keymap.set("n", "<leader>rs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
-keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>")
+-- Split line with X
+keymap.set("n", "X", ":keeppatterns substitute/\\s*\\%#\\s*/\\r/e <bar> normal! ==^<cr>", { silent = true })
+
+-- Select all
+keymap.set("n", "<C-a>", "ggVG", opts)
+
+-- write file in current directory
+-- :w %:h/<new-file-name>
+keymap.set("n", "<C-n>", ":w %:h/", opts)
 
 -- Diagnostic keymaps
 keymap.set("n", "[d", vim.diagnostic.goto_next)
@@ -77,3 +106,6 @@ keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window"
 
 -- Escape Terminal mode with <leader><ESC>
 vim.api.nvim_set_keymap("t", "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit terminal mode", noremap = true })
+
+keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
+keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>")
