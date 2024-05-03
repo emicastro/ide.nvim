@@ -9,7 +9,10 @@ return {
     lualine.setup({
       options = {
         icons_enabled = true,
-        theme = "powerline",
+        --- @usage 'rose-pine' | 'rose-pine-alt'
+        -- theme = "rose-pine",
+        -- theme = "tundra",
+        -- theme = "powerline",
         --component_separators = '|',
         --section_separators = '',
         disabled_filetypes = {
