@@ -106,7 +106,7 @@ return {
         fields = { "kind", "abbr", "menu" },
         -- configure lspkind for vs-code like pictograms in completion menu
         format = function(entry, vim_item)
-          local kind = require("lspkind").cmp_format({
+          local kind = lspkind.cmp_format({
             mode = "symbol_text",
             maxwidth = 50,
             ellipsis_char = "...",

@@ -10,7 +10,6 @@ return {
       "harpoon",
       "neo-tree",
       "DressingInput",
-      "NeogitCommitMessage",
       "qf",
       "dirvish",
       "fugitive",
