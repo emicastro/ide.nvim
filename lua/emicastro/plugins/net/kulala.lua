@@ -5,7 +5,6 @@ autocmd("BufWinEnter", {
   pattern = "*.http",
   callback = function()
     local bufnr = vim.api.nvim_get_current_buf()
-    -- local opts = { buffer = bufnr, remap = false }
     local kulala = require("kulala")
 
     -- execute request
